@@ -1,11 +1,11 @@
 import plugin from "windicss/plugin";
 
 export default plugin.withOptions<{
-	gridColumns?: number;
-	gridGutterWidth?: string;
-	respectImportant?: boolean;
+	gridColumns?: number
+	gridGutterWidth?: string
+	respectImportant?: boolean
 }>(({ gridColumns = 12, gridGutterWidth = "1.5rem", respectImportant = true } = {}) => {
-	return function ({ addComponents, theme, config }) {
+	return function({ addComponents, theme, config }) {
 		const important = config("important");
 		const screens = theme("screens") as Record<string, string>;
 		const screenKeys = Object.keys(screens);
@@ -25,8 +25,8 @@ export default plugin.withOptions<{
 						marginRight: setImportant("auto"),
 						marginLeft: setImportant("auto"),
 						paddingRight: setImportant(`var(--bs-gutter-x, calc(${gridGutterWidth} / 2))`),
-						paddingLeft: setImportant(`var(--bs-gutter-x, calc(${gridGutterWidth} / 2))`),
-					},
+						paddingLeft: setImportant(`var(--bs-gutter-x, calc(${gridGutterWidth} / 2))`)
+					}
 				},
 				//   Currently broken using @screen
 				//   ...screenKeys.map(size => ({
@@ -36,13 +36,13 @@ export default plugin.withOptions<{
 				//       }
 				//     }
 				//   }))
-				...screenKeys.map((size) => ({
+				...screenKeys.map(size => ({
 					[`@media (min-width: ${screens[size]})`]: {
 						".container": {
-							maxWidth: setImportant(screens[size]),
-						},
-					},
-				})),
+							maxWidth: setImportant(screens[size])
+						}
+					}
+				}))
 			],
 			{ respectImportant }
 		);
@@ -58,16 +58,16 @@ export default plugin.withOptions<{
 					"marginTop": "calc(var(--bs-gutter-y) * -1)",
 					"marginRight": "calc(var(--bs-gutter-x) / -2)",
 					"marginLeft": "calc(var(--bs-gutter-x) / -2)",
-					'> [class*="col-"]': {
+					"> [class*=\"col-\"]": {
 						boxSizing: "border-box",
 						flexShrink: "0",
 						width: "100%",
 						maxWidth: "100%",
 						paddingRight: "calc(var(--bs-gutter-x) / 2)",
 						paddingLeft: "calc(var(--bs-gutter-x) / 2)",
-						marginTop: "var(--bs-gutter-y)",
-					},
-				},
+						marginTop: "var(--bs-gutter-y)"
+					}
+				}
 			},
 			{ respectImportant }
 		);
@@ -77,35 +77,35 @@ export default plugin.withOptions<{
 			[
 				{
 					".col": {
-						flex: "1 0 0%",
+						flex: "1 0 0%"
 					},
 					".row-cols-auto": {
-						'> [class*="col-"]': {
+						"> [class*=\"col-\"]": {
 							flex: "0 0 auto",
-							width: "auto",
-						},
-					},
+							width: "auto"
+						}
+					}
 				},
-				...rowColSteps.map((rowCol) => ({
+				...rowColSteps.map(rowCol => ({
 					[`.row-cols-${rowCol}`]: {
-						'> [class*="col-"]': {
+						"> [class*=\"col-\"]": {
 							flex: "0 0 auto",
-							width: setImportant(`${100 / rowCol}%`),
-						},
-					},
+							width: setImportant(`${100 / rowCol}%`)
+						}
+					}
 				})),
 				{
 					".col-auto": {
 						flex: "0 0 auto",
-						width: "auto",
-					},
+						width: "auto"
+					}
 				},
-				...columns.map((size) => ({
+				...columns.map(size => ({
 					[`.col-${size}`]: {
 						flex: "0 0 auto",
-						width: setImportant(`${(100 / gridColumns) * size}%`),
-					},
-				})),
+						width: setImportant(`${(100 / gridColumns) * size}%`)
+					}
+				}))
 			],
 			{ respectImportant }
 		);
@@ -116,9 +116,9 @@ export default plugin.withOptions<{
 				...[0, ...columns.slice(0, -1)].map((size) => {
 					const margin = `${(100 / gridColumns) * size}%`;
 					return {
-						[`.offset-${size}`]: { marginLeft: margin },
+						[`.offset-${size}`]: { marginLeft: margin }
 					};
-				}),
+				})
 			],
 			{ respectImportant }
 		);

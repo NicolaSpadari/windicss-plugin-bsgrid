@@ -29,5 +29,8 @@
 	"homepage": "https://github.com/NicolaSpadari/windicss-plugin-bsgrid",
 	"peerDependencies": {
 		"windicss": "^3.5.1"
+	},
+	"devDependencies": {
+		"@antfu/eslint-config": "^0.18.8"
 	}
 }

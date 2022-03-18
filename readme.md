@@ -20,8 +20,8 @@ export default defineConfig({
 	plugins: [
 		BsGrid({
 			// Optional options
-		}),
-	],
+		})
+	]
 	// ...
 });
 ```
@@ -49,8 +49,8 @@ Remember to disable the core plugin of the default `.container` class:
 export default defineConfig({
 	// ...
 	corePlugins: {
-		container: false,
-	},
+		container: false
+	}
 	// ...
 });
 ```
@@ -68,7 +68,7 @@ If you want to set custom breakpoints, set them in the windi config file as it f
 export default defineConfig({
 	// ...
 	corePlugins: {
-		container: false,
+		container: false
 	},
 	// ...
 	screens: {
@@ -76,8 +76,8 @@ export default defineConfig({
 		md: "768px",
 		lg: "992px",
 		xl: "1200px",
-		xxl: "1400px",
-	},
+		xxl: "1400px"
+	}
 });
 ```
 
