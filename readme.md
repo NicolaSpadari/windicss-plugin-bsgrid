@@ -16,15 +16,14 @@ import { defineConfig } from "vite-plugin-windicss";
 import BsGrid from "@spada/windicss-plugin-bsgrid";
 
 export default defineConfig({
-    ...
-    plugins: [
-        BsGrid({
-            // Optional options
-        })
-    ]
-    ...
+	// ...
+	plugins: [
+		BsGrid({
+			// Optional options
+		}),
+	],
+	// ...
 });
-
 ```
 
 This plugin generates the grid classes under the `components` layer, so you must include it such as:
@@ -61,6 +60,26 @@ export default defineConfig({
 -   `gridColumns` (default 12)
 -   `gridGutterWidth` (default 1.5rem)
 -   `respectImportant` (default true) to respect the windi config setting
+
+If you want to set custom breakpoints, set them in the windi config file as it follows (nested objects and min/max are not supported):
+
+```js
+// windi.config.ts
+export default defineConfig({
+	// ...
+	corePlugins: {
+		container: false,
+	},
+	// ...
+	screens: {
+		sm: "576px",
+		md: "768px",
+		lg: "992px",
+		xl: "1200px",
+		xxl: "1400px",
+	},
+});
+```
 
 ## Related
 

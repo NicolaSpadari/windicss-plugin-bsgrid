@@ -1,11 +1,8 @@
 {
 	"name": "@spada/windicss-plugin-bsgrid",
-	"version": "0.1.1",
+	"version": "0.1.4",
 	"description": "Bootstrap 5 barebone grid system for WindiCSS",
-	"main": ".src/index.js",
-	"files": [
-		".src/index.js"
-	],
+	"main": "index.ts",
 	"scripts": {
 		"publish:patch": "npm version patch --no-git-tag-version && npm publish",
 		"publish:minor": "npm version minor --no-git-tag-version && npm publish",
