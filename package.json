@@ -1,6 +1,6 @@
 {
-	"name": "windicss-plugin-bsgrid",
-	"version": "0.0.1",
+	"name": "@spada/windicss-plugin-bsgrid",
+	"version": "0.1.1",
 	"description": "Bootstrap 5 barebone grid system for WindiCSS",
 	"main": ".src/index.js",
 	"files": [
