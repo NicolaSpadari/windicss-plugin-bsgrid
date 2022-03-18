@@ -3,7 +3,6 @@ import plugin from "windicss/plugin";
 export default plugin.withOptions<{
 	gridColumns?: number;
 	gridGutterWidth?: string;
-	gridGutters?: Record<string | number, string>;
 	respectImportant?: boolean;
 }>(({ gridColumns = 12, gridGutterWidth = "1.5rem", respectImportant = true } = {}) => {
 	return function ({ addComponents, theme, config }) {
@@ -12,6 +11,7 @@ export default plugin.withOptions<{
 		const screenKeys = Object.keys(screens);
 		const columns = Array.from(Array(gridColumns), (_, index) => index + 1);
 		const rowColSteps = columns.slice(0, Math.floor(gridColumns / 2));
+		const components = {};
 
 		const setImportant = (value: string): string => {
 			return (respectImportant || important) && value != null ? `${value} !important` : value;
@@ -29,8 +29,16 @@ export default plugin.withOptions<{
 						paddingLeft: setImportant(`var(--bs-gutter-x, calc(${gridGutterWidth} / 2))`),
 					},
 				},
+				//   Currently broken using @screen
+				//   ...screenKeys.map(size => ({
+				//     [`@screen ${size}`]: {
+				//       ".container": {
+				//         maxWidth: setImportant(screens[size])
+				//       }
+				//     }
+				//   }))
 				...screenKeys.map((size) => ({
-					[`@screen ${size}`]: {
+					[`@media screen and (min-width: ${screens[size]})`]: {
 						".container": {
 							maxWidth: setImportant(screens[size]),
 						},

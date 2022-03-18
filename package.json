@@ -1,13 +1,24 @@
 {
 	"name": "windicss-plugin-bsgrid",
-	"version": "1.0.0",
+	"version": "0.0.1",
 	"description": "Bootstrap 5 barebone grid system for WindiCSS",
 	"main": ".src/index.js",
-	"author": "Nicola Spadari",
+	"files": [
+		".src/index.js"
+	],
+	"scripts": {
+		"publish:patch": "npm version patch --no-git-tag-version && npm publish",
+		"publish:minor": "npm version minor --no-git-tag-version && npm publish",
+		"publish:major": "npm version major --no-git-tag-version && npm publish"
+	},
+	"author": "Nicola Spadari <spadari.nicola@gmail.com> (https://github.com/NicolaSpadari/)",
 	"license": "MIT",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/NicolaSpadari/windicss-plugin-bsgrid"
+	},
+	"publishConfig": {
+		"access": "public"
 	},
 	"keywords": [
 		"windicss",
@@ -19,7 +30,7 @@
 		"url": "https://github.com/NicolaSpadari/windicss-plugin-bsgrid/issues"
 	},
 	"homepage": "https://github.com/NicolaSpadari/windicss-plugin-bsgrid",
-	"devDependencies": {
+	"peerDependencies": {
 		"windicss": "^3.5.1"
 	}
 }
